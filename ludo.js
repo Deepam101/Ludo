@@ -68,6 +68,7 @@ submit.onclick=function()
 			alert("Player 2 Wins");
 			console.log("win"); 
 		}
+		console.log("redprog1="+redprog1+" redprog2="+redprog2);
 };
 	
 
@@ -97,13 +98,13 @@ function job()
 					redout1=1;
 				if(redout1==1 && redprog1!=100)
 				{
-					cellr.classList.add("pieces","red");
-					red1.classList.remove("pieces");
+					cellr.classList.add("pieces1","red");
+					red1.classList.remove("pieces1");
 				}
 				 if(redout2==1 && redprog2!=100)
 				 {
-					cellr2.classList.add("pieces","red");
-					red2.classList.remove("pieces","red");
+					cellr2.classList.add("pieces2","red");
+					red2.classList.remove("pieces2","red");
 				 }
 				lockno1.textContent=--lock1piece;
 				click1=1;
@@ -120,13 +121,13 @@ function job()
 					blueout1=1;
 				if(blueout1==1 && blueprog1!=100)
 					{
-						cellb.classList.add("pieces","blue");
-						blue1.classList.remove("pieces");
+						cellb.classList.add("pieces1","blue");
+						blue1.classList.remove("pieces1");
 					}
 					if(blueout2==1 && blueprog2!=100)
 					 {
-						cellb2.classList.add("pieces","blue");
-						blue2.classList.remove("pieces","blue");
+						cellb2.classList.add("pieces2","blue");
+						blue2.classList.remove("pieces2","blue");
 					}
 				lockno2.textContent=--lock2piece;
 				click2=1;
@@ -137,7 +138,7 @@ function job()
 	if(player.textContent=="1" && click1!=1 && moved!=1 && redout1==1)
 		cellr.onclick=function()
 			{
-				if(moved!=1 && click1!=1)
+				if(moved!=1 && click1!=1 )
 				{
 						
 						redprog1+=value;
@@ -145,8 +146,8 @@ function job()
 							{
 								console.log(redprog1+"moving red");
 								var cell2=document.getElementById(redprog1);
-								cellr.classList.remove("pieces","red");
-								cell2.classList.add("pieces","red");
+								cellr.classList.remove("pieces1","red");
+								cell2.classList.add("pieces1","red");
 								cellr=document.getElementById(redprog1);
 								moved=1;
 								if(cellr==cellb || cellr==cellb2)
@@ -155,14 +156,14 @@ function job()
 										lockno2.textContent=++lock2piece;
 										if(cellr==cellb)
 											{
-												blue1.classList.add("pieces","blue");
-												cellb.classList.remove("pieces","blue");
+												blue1.classList.add("pieces1","blue");
+												cellb.classList.remove("pieces1","blue");
 												cellb=document.getElementById("15");
 												count1=0;
 											}
 										else{
-											 blue2.classList.add("pieces","blue")
-											cellb2.classList.remove("pieces","blue");
+											 blue2.classList.add("pieces2","blue")
+											cellb2.classList.remove("pieces2","blue");
 												cellb2=document.getElementById("15");
 												count2=0;
 											}
@@ -171,23 +172,23 @@ function job()
 							else if(redprog1>28)
 								redprog1-=value;
 							else if(redprog1==28)
-								{cellr.classList.remove("pieces","red");wincountr++;redprog1=100;moved=1;cellr=0;}
+								{cellr.classList.remove("pieces1","red");wincountr++;redprog1=100;moved=1;cellr=0;}
 
 				}
 			
 
 		};
 
-		if(player.textContent=="1" && click1!=1 && moved!=1 && redout2==1)
+		if(player.textContent=="1" && click1!=1 && moved!=1 && redout2==1 )
 		cellr2.onclick=function(){
-			if(moved!=1 && click1!=1 && redprog2<=27)
+			if(moved!=1 && click1!=1 && redprog2<=27 )
 			{
 				redprog2+=value;
 				if(redprog2<=27)
 					{
 						var cell2=document.getElementById(redprog2);
-						cellr2.classList.remove("pieces","red");
-						cell2.classList.add("pieces","red");
+						cellr2.classList.remove("pieces2","red");
+						cell2.classList.add("pieces2","red");
 						cellr2=document.getElementById(redprog2);
 						moved=1;
 						if(cellr2==cellb || cellr2==cellb2)
@@ -196,14 +197,14 @@ function job()
 								lockno2.textContent=++lock2piece;
 								if(cellr2==cellb)
 									{
-										blue1.classList.add("pieces");
-										cellb.classList.remove("pieces","blue");
+										blue1.classList.add("pieces1");
+										cellb.classList.remove("pieces1","blue");
 										cellb=document.getElementById("15");
 										count1=0;
 									}
 								else{
-										blue2.classList.add("pieces");
-										cellb2.classList.remove("pieces","blue");
+										blue2.classList.add("pieces2");
+										cellb2.classList.remove("pieces2","blue");
 										cellb2=document.getElementById("15");
 										count2=0;
 									}
@@ -213,7 +214,7 @@ function job()
 				else if(redprog2>28)
 						redprog2-=value;
 				else if(redprog2==28)
-						{cellr2.classList.remove("pieces","red");wincountr++;redprog2==100;moved=1;cellr2=0;}
+						{cellr2.classList.remove("pieces2","red");wincountr++;redprog2==100;moved=1;cellr2=0;}
 			}
 			
 		};
@@ -235,8 +236,8 @@ function job()
 						{
 							var cell2=document.getElementById(blueprog1);
 						
-							cellb.classList.remove("pieces","blue");
-							cell2.classList.add("pieces","blue");
+							cellb.classList.remove("pieces1","blue");
+							cell2.classList.add("pieces1","blue");
 							cellb=document.getElementById(blueprog1);
 							moved=1;
 							if(cellb==cellr || cellb==cellr2)
@@ -245,20 +246,20 @@ function job()
 									lockno1.textContent=++lock1piece;
 									if(cellr==cellb)
 										{
-											red1.classList.add("pieces");
-											cellr.classList.remove("pieces","red");
+											red1.classList.add("pieces1");
+											cellr.classList.remove("pieces2","red");
 											cellr=document.getElementById("1");
 										}
 									else
 										{
-											red2.classList.add("pieces");
-											cellr2.classList.remove("pieces","red");
+											red2.classList.add("pieces2");
+											cellr2.classList.remove("pieces2","red");
 											cellr2=document.getElementById("1");
 										}
 								}
 						}
 						else if(blueprog1 ==14)
-							{wincountb++;cellb.classList.remove("pieces","blue");blueprog1=100;cellb=0;}
+							{wincountb++;cellb.classList.remove("pieces1","blue");blueprog1=100;cellb=0;}
 						else if(blueprog1>14)
 							blueprog1-=value;
 
@@ -282,8 +283,8 @@ function job()
 					{
 						var cell2=document.getElementById(blueprog2);
 						
-						cellb2.classList.remove("pieces","blue");
-						cell2.classList.add("pieces","blue");
+						cellb2.classList.remove("pieces2","blue");
+						cell2.classList.add("pieces2","blue");
 						cellb2=document.getElementById(blueprog2);
 						moved=1;
 						if(cellb2==cellr || cellb2==cellr2)
@@ -292,20 +293,20 @@ function job()
 									lockno1.textContent=++lock1piece;
 									if(cellr==cellb2)
 										{
-											red1.classList.add("pieces");
-											cellr.classList.remove("pieces","red");
+											red1.classList.add("pieces1");
+											cellr.classList.remove("pieces1","red");
 											cellr=document.getElementById("1");
 										}
 									else
 										{
-											red2.classList.add("pieces");
-											cellr2.classList.remove("pieces","red");
+											red2.classList.add("pieces2");
+											cellr2.classList.remove("pieces2","red");
 											cellr2=document.getElementById("1");
 										}
 								}
 					}
 						else if(blueprog2 ==14)
-							{wincountb++;cellb2.classList.remove("pieces","blue");blueprog2=100;cellb2=0;}
+							{wincountb++;cellb2.classList.remove("pieces2","blue");blueprog2=100;cellb2=0;}
 						else if(blueprog2>14)
 							blueprog2-=value;
 				}			

@@ -6,7 +6,7 @@
 }
 .header{
 	position: relative;
-	font-size: 7em;
+	font-size: 6em;
 	margin-left: 36%;
 	top: -30px;
 	font-family:'Righteous', cursive;
@@ -62,7 +62,15 @@ img{
 .right{
 	margin-left: 440.3px;
 }
-.pieces{
+.pieces1{
+	background-color:rgba(0,0,0,.5);
+	border-radius: 15px;
+	min-width: 20px;
+	min-height: 20px;
+	display: inline-block;
+
+}
+.pieces2{
 	background-color:rgba(0,0,0,.5);
 	border-radius: 15px;
 	min-width: 20px;
